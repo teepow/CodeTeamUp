@@ -3,5 +3,5 @@
 @section('content')
 	
 	Home Page
-
+	
 @stop

@@ -16,6 +16,19 @@
  */
 Route::get('/', 'PagesController@home');
 
+/**
+ * Profile
+ */
+Route::get('profiles/edit', 'ProfilesController@edit');
+
+
+
+
+
+
+/**
+ * Authentication
+ */
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
