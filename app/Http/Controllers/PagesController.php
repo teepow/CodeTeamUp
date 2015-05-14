@@ -3,6 +3,7 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Auth;
+use App\Profile;
 
 use Illuminate\Http\Request;
 
@@ -12,6 +13,8 @@ class PagesController extends Controller {
 	{
 		if(Auth::check())
 		{
+			$name = Auth::user()->name;
+
 			$location = Auth::user()->profiles->location;
 
 			$website = Auth::user()->profiles->website;
@@ -20,9 +23,21 @@ class PagesController extends Controller {
 
 			$age = Auth::user()->profiles->age;
 
-			$languages = NULL;
+			$bio = Auth::user()->profiles->bio;
 
-			return view('pages.home', compact('location', 'website', 'github', 'age', 'languages'));
+			$image = Auth::user()->profiles->image;
+
+			$id = Auth::user()->profiles->id;
+
+			$languages = Profile::find($id)->languages;
+
+			//Store names of languages in languageNames[]
+			foreach ($languages as $language)
+			{
+				$languageNames[] = $language->name;
+			}
+
+			return view('pages.home', compact('name', 'location', 'website', 'github', 'age', 'bio', 'image', 'languageNames'));
 		}
 		return view('auth.login');
 	}
