@@ -17,15 +17,12 @@ class CreateProfilesTable extends Migration {
 			$table->increments('id');
 			$table->integer('user_id')->unsigned();
 			$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-<<<<<<< HEAD
 			$table->string('website')->nullable();
 			$table->string('github')->nullable();
-=======
-			$table->string('website');
-			$table->string('github');
->>>>>>> defde3e43ce99c21c5f53168152c884fe0675f55
+			$table->string('bio')->nullable();
 			$table->integer('age');
 			$table->string('location');
+			$table->string('image')->nullable();
 			$table->timestamps();
 		});
 	}

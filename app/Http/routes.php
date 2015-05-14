@@ -20,6 +20,8 @@ Route::get('/', 'PagesController@home');
  * Profile
  */
 Route::get('profiles/edit', 'ProfilesController@edit');
+Route::get('profiles/create', 'ProfilesController@create');
+Route::post('profiles/store', 'ProfilesController@store');
 
 
 
