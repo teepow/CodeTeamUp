@@ -21,10 +21,13 @@ Route::get('/', 'PagesController@home');
  */
 Route::get('profiles/edit', 'ProfilesController@edit');
 Route::get('profiles/create', 'ProfilesController@create');
+Route::get('profiles/{profiles}', 'ProfilesController@show');
 Route::post('profiles/store', 'ProfilesController@store');
 
-
-
+/**
+ * Matches
+ */
+Route::get('/matches', 'MatchesController@index');
 
 
 

@@ -26,9 +26,14 @@ class Profile extends Model {
 	 */
 	 public function user()
 	 {
-	 	return $this->belongsTo('User');
+	 	return $this->belongsTo('App\User');
 	 }
 
+	 /**
+	  * Profile can have many languages
+	  * 
+	  * @return belongsToMany
+	  */
 	 public function languages()
 	 {
 	 	return $this->belongsToMany('App\Language');

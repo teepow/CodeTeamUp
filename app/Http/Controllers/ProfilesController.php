@@ -79,6 +79,17 @@ class ProfilesController extends Controller {
 		return Redirect('/');
 	}
 
+	public function show($profileId)
+	{
+		$profile = Profile::find($profileId);
+
+		return view('profiles.show', compact('profile'));
+	}
+
+
+
+
+
 	/**
 	 * Resize image to 200 x 200
 	 * 
