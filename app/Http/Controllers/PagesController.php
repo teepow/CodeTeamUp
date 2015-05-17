@@ -15,19 +15,21 @@ class PagesController extends Controller {
 		{
 			$name = Auth::user()->name;
 
-			$location = Auth::user()->profiles->location;
+			$profile = Auth::user()->profiles;
 
-			$website = Auth::user()->profiles->website;
+			$location = $profile->location;
 
-			$github = Auth::user()->profiles->github;
+			$website = $profile->website;
 
-			$age = Auth::user()->profiles->age;
+			$github = $profile->github;
 
-			$bio = Auth::user()->profiles->bio;
+			$age = $profile->age;
 
-			$image = Auth::user()->profiles->image;
+			$bio = $profile->bio;
 
-			$id = Auth::user()->profiles->id;
+			$image = $profile->image;
+
+			$id = $profile->id;
 
 			$languages = Profile::find($id)->languages;
 

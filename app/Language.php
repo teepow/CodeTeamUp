@@ -8,6 +8,11 @@ class Language extends Model {
 		'name'
 	];
 
+	/**
+	 * Language belongs to many profiles
+	 * 
+	 * @return belongsToMany
+	 */
 	public function profiles()
 	{
 		return $this->belongsToMany('App\Profile');

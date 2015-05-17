@@ -79,11 +79,41 @@ class ProfilesController extends Controller {
 		return Redirect('/');
 	}
 
+	/**
+	 * Show profile of user with profileId
+	 * 
+	 * @param  Integer $profileId profile_id of profile to view
+	 * 
+	 * @return profiles.show
+	 */
 	public function show($profileId)
 	{
 		$profile = Profile::find($profileId);
 
-		return view('profiles.show', compact('profile'));
+		$name = $profile->user->name;
+
+		$location = $profile->location;
+
+		$website = $profile->website;
+
+		$github = $profile->github;
+
+		$age = $profile->age;
+
+		$bio = $profile->bio;
+
+		$image = $profile->image;
+
+		$languages = $profile->languages;
+
+		//Store names of languages in languageNames[]
+		foreach ($languages as $language)
+		{
+			$languageNames[] = $language->name;
+		}
+
+
+		return view('profiles.show', compact('name', 'location', 'github', 'website', 'age', 'bio', 'image', 'languageNames'));
 	}
 
 
