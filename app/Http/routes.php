@@ -29,7 +29,11 @@ Route::post('profiles/store', 'ProfilesController@store');
  */
 Route::get('/matches', 'MatchesController@index');
 
-
+/**
+ * Messages
+ */
+Route::get('messages/{id}/create', 'MessagesController@create');
+Route::post('messages/store', 'MessagesController@store');
 
 /**
  * Authentication

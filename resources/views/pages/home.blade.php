@@ -2,9 +2,7 @@
 
 @section('content')
 	
-	<h1 class="page-heading">
-		Hello, {{ $name }}
-	</h1>
+	<h1 class="page-heading">Hello, {{ $name }}</h1>
 
 	<div class="col-md-3">
 		{!! HTML::image("$image", null, ['class' => 'img-responsive']) !!}

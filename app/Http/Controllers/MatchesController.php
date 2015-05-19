@@ -10,6 +10,19 @@ use Illuminate\Http\Request;
 
 class MatchesController extends Controller {
 
+	/**
+	 * Create new matches instance and apply middleware for authentication
+	 */
+	public function __construct()
+	{
+		$this->middleware('auth');
+	}
+
+	/**
+	 * Show page with matches
+	 * 
+	 * @return matches/index
+	 */
 	public function index()
 	{
 		$userId = Auth::user()->profiles->id;

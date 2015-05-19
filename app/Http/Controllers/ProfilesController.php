@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Language;
 use App\Http\Requests\PrepareProfileRequest;
 use App\Profile;
+use Auth;
 use Image;
 
 use Illuminate\Http\Request;
@@ -68,7 +69,7 @@ class ProfilesController extends Controller {
 
 		$profile->image = $path;
 
-		\Auth::user()->profiles()->save($profile);
+		Auth::user()->profiles()->save($profile);
 
 		//Store profile_id and language_id in pivot table
 		foreach ($languageIds as $id)
@@ -113,7 +114,7 @@ class ProfilesController extends Controller {
 		}
 
 
-		return view('profiles.show', compact('name', 'location', 'github', 'website', 'age', 'bio', 'image', 'languageNames'));
+		return view('profiles.show', compact('name', 'location', 'github', 'website', 'age', 'bio', 'image', 'languageNames', 'profileId'));
 	}
 
 
