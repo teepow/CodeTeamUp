@@ -15,6 +15,7 @@
 				<li><a href="{{ url('/') }}">Home</a></li>
 				<li><a href="{{ url('/profiles/edit') }}">Edit Profile</a></li>
 				<li><a href="{{ url('/matches/') }}">View Matches</a></li>
+				<li><a href="{{ url('/messages/') }}">View Messages {{ isset($messageCount) ? $messageCount : '' }}</a></li>
 			</ul>
 
 			<ul class="nav navbar-nav navbar-right">

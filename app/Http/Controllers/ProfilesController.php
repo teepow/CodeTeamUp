@@ -13,11 +13,14 @@ use Illuminate\Http\Request;
 class ProfilesController extends Controller {
 
 	/**
-	 * Create new profile instance and apply middleware for authentication
+	 * Create new profile instance, apply middleware for authentication, and set messageCount
+	 * 
 	 */
 	public function __construct()
 	{
 		$this->middleware('auth');
+
+		$this->setMessageCount();
 	}
 
 	/**

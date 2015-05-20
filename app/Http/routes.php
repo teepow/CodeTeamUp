@@ -11,6 +11,7 @@
 |
 */
 
+
 /**
  * Home Page
  */
@@ -27,13 +28,14 @@ Route::post('profiles/store', 'ProfilesController@store');
 /**
  * Matches
  */
-Route::get('/matches', 'MatchesController@index');
+Route::get('matches', 'MatchesController@index');
 
 /**
  * Messages
  */
 Route::get('messages/{id}/create', 'MessagesController@create');
 Route::post('messages/store', 'MessagesController@store');
+Route::get('messages', 'MessagesController@index');
 
 /**
  * Authentication

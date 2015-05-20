@@ -11,11 +11,13 @@ use Illuminate\Http\Request;
 class MatchesController extends Controller {
 
 	/**
-	 * Create new matches instance and apply middleware for authentication
+	 * Create new matches instance, apply middleware for authentication, and set messageCount
 	 */
 	public function __construct()
 	{
 		$this->middleware('auth');
+
+		$this->setMessageCount();
 	}
 
 	/**
