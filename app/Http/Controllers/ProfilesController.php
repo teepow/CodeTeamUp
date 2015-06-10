@@ -30,9 +30,16 @@ class ProfilesController extends Controller {
 	 */
 	public function edit()
 	{
-		$languages = Language::all()->lists('name');
+		$allLanguages = Language::all()->lists('name');
+
+		$profile = Auth::user()->profiles;
+
+		foreach($profile->languages as $language)
+		{
+			$currentLanguages[] = $language->name;
+		}
 		
-		return view('profiles.edit', compact('languages'));
+		return view('profiles.edit', compact('allLanguages', 'profile', 'currentLanguages'));
 	}
 
 	/**
@@ -56,23 +63,25 @@ class ProfilesController extends Controller {
 	 */
 	public function store(PrepareProfileRequest $request)
 	{
-		$file = $this->resizeImage($request);
+		//If exists, store image
+		if($request->file('file')) 
+		{
+			$file = $this->resizeImage($request->file('file'));
 
-		$path = '/images/' . date('Y-m-d H:i:s');
+			$path = $this->getPath($file);
 
-		$file->save(public_path() . $path);
-
-		$languages = $request->input('language');
-
-		$languageIds = $this->getLanguageIds($languages);
+			$profile->image = $path;
+		}
 
 		$data = $request->except('language', 'file');
 
 		$profile = Profile::open($data);
 
-		$profile->image = $path;
-
 		Auth::user()->profiles()->save($profile);
+
+		$languages = $request->input('languages');
+
+		$languageIds = $this->getLanguageIds($languages);
 
 		//Store profile_id and language_id in pivot table
 		foreach ($languageIds as $id)
@@ -120,7 +129,46 @@ class ProfilesController extends Controller {
 		return view('profiles.show', compact('name', 'location', 'github', 'website', 'age', 'bio', 'image', 'languageNames', 'profileId'));
 	}
 
+	/**
+	 * Update user's profile
+	 * 
+	 * @param  Integer $profileId 
+	 * 
+	 * @param  PrepareProfileRequest $request
+	 * 
+	 * @return '/'
+	 */
+	public function update($profileId, PrepareProfileRequest $request)
+	{
+		Profile::where('id', '=', $profileId)
+			->update(['website' => $request->website,
+						'github' => $request->github,
+						'bio' => $request->bio,
+						'age' => $request->age,
+						'location' => $request->location,
+		]);
 
+		//if exists, save file
+		if($request->file('file'))
+		{
+			$file = $this->resizeImage($request->file('file'));
+
+			$path = $this->getPath($file);
+
+			Profile::where('id', '=', $profileId)
+				->update(['image' => $path]);
+		}
+
+		//Save the languages to pivot table
+		$languageIds = $this->getLanguageIds($request->languages);
+
+		$profile = Auth::user()->profiles;
+
+		$profile->languages()->sync($languageIds);
+
+		return Redirect('/');
+
+	}
 
 
 
@@ -131,15 +179,29 @@ class ProfilesController extends Controller {
 	 * 
 	 * @return file
 	 */
-	public function resizeImage($request)
+	public function resizeImage($file)
 	{
-		$file = $request->file('file');
-
 		$file = Image::make(file_get_contents($file));
 
 		$file->resize(200, 200);
 
 		return $file;
+	}
+
+	/**
+	 * Save image to images directory and return the path
+	 * 		
+	 * @param $file [image file]
+	 * 
+	 * @return string  path to file
+	 */
+	public function getPath($file)
+	{
+		$path = '/images/' . date('Y-m-d H:i:s');
+
+		$file->save(public_path() . $path);
+
+		return $path;
 	}
 
 	/**

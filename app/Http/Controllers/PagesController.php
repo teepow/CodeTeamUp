@@ -26,6 +26,8 @@ class PagesController extends Controller {
 	{
 		if(Auth::check())
 		{
+			if(!Auth::user()->profiles) return redirect('profiles/create');
+
 			$name = Auth::user()->name;
 
 			$profile = Auth::user()->profiles;

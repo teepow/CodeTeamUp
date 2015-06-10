@@ -3,6 +3,7 @@
 use Illuminate\Foundation\Bus\DispatchesCommands;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
+use Auth;
 
 abstract class Controller extends BaseController {
 
@@ -13,7 +14,7 @@ abstract class Controller extends BaseController {
 		 */
 		public function setMessageCount()
 		{
-			if(\Auth::user())
+			if(Auth::check() && Auth::user()->profiles)
 			{
 				$profileId = \Auth::user()->profiles->id;
 

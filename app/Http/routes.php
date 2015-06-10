@@ -24,6 +24,7 @@ Route::get('profiles/edit', 'ProfilesController@edit');
 Route::get('profiles/create', 'ProfilesController@create');
 Route::get('profiles/{profiles}', 'ProfilesController@show');
 Route::post('profiles/store', 'ProfilesController@store');
+Route::patch('profiles/{profiles}', 'ProfilesController@update');
 
 /**
  * Matches

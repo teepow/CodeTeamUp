@@ -26,7 +26,7 @@ class PrepareProfileRequest extends Request {
 			'website'  	=> 'url',
 			'github'	=> 'url',
 			'age'		=> 'required',
-			'language'	=> 'required|min:1',
+			'languages'	=> 'required|min:1',
 			'file' 		=> 'image|mimes:jpg,jpeg,png'
 		];
 	}
