@@ -1,0 +1,74 @@
+@import 'partials/colors';
+
+body {
+	background-color: $main;
+}
+
+.container {
+	margin-top: 100px;
+}
+
+/**
+ * Home page
+ */
+.page-heading {
+	text-align: center;
+	margin-bottom: 100px;
+}
+
+ul {
+	list-style-type: none;
+}
+
+.home-list {
+	margin-left: -40px;
+	margin-top: 20px;
+}
+
+.bio {
+	text-align: center;
+	margin: 50px;
+	font-size: 2em;
+}
+
+/**	
+ * Profile
+ */
+.labels-group label {
+	width: 75px;
+}
+
+input {
+	background-color: $lighter;
+}
+
+textarea {
+	background-color: $lighter !important;
+}
+
+input[type="submit"] {
+	background-color: $darker;
+}
+
+/**
+ * Matches
+ */
+.panel-default {
+	th {
+		width: 200px;
+		&:first-of-type {
+			width: 25px;
+		}
+	}
+	img {
+		float: left;
+	}
+}
+
+/**
+ * Messages
+ */
+.panel-body a {
+	float: right;
+	margin-left: 10px;
+}

@@ -68,7 +68,9 @@ class MessagesController extends Controller {
 	{
 		$profileId = \Auth::user()->profiles->id;
 
-		$messages = \DB::table('messages')->where('receiver_id', $profileId)->join('users', 'user_id', '=', 'users.id')->get();
+		$messages = \DB::table('messages')->where('receiver_id', $profileId)
+			->join('users', 'user_id', '=', 'users.id')
+			->join('profiles', 'messages.user_id', '=', 'profiles.user_id')->get();
 
 		return view('messages.index', compact('messages'));
 	}

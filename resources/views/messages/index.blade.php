@@ -2,9 +2,17 @@
 
 @section('content')
 
-<ul>
 	@foreach($messages as $message)
-		<li>{{ $message->message . " " . $message->user_id . " " . $message->name }}</li>
+		<div class="panel panel-info">
+			<div class="panel-heading">	
+				<h3 class="panel-title">{{ $message->name }}</h3>
+			</div>
+			<div class="panel-body">
+				{{ $message->message }}
+				<a class="btn btn-primary" href="profiles/{{ $message->id }}">View Profile</a>
+				<a class="btn btn-primary" href="messages/{{ $message->id }}/create">Send Message</a>
+			</div>
+		</div>
 	@endforeach
-</ul>
+
 @stop

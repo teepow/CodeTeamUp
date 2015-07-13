@@ -2,35 +2,36 @@
 
 @section('content')
 
-	<h1 class="page-heading">Edit Profile</h1>
-
 	{!! Form::open(['data-remote', 'method' => 'PATCH', 'url' => 'profiles/' . $profile->id, 'files' => true]) !!}
+		<div class="labels-group">
 
-		<div class="form-group">
-			
-			{!! Form::label('location') !!}
-			{!! Form::text('location', $profile->location) !!}
+			<div class="form-group">
+				
+				{!! Form::label('location') !!}
+				{!! Form::text('location', $profile->location) !!}
 
-		</div>
+			</div>
 
-		<div class="form-group">
-			
-			{!! Form::label('website') !!}
-			{!! Form::text('website', $profile->website) !!}
+			<div class="form-group">
+				
+				{!! Form::label('website') !!}
+				{!! Form::text('website', $profile->website) !!}
 
-		</div>
+			</div>
 
-		<div class="form-group">
-			
-			{!! Form::label('github') !!}
-			{!! Form::text('github', $profile->github) !!}
+			<div class="form-group">
+				
+				{!! Form::label('github') !!}
+				{!! Form::text('github', $profile->github) !!}
 
-		</div>
+			</div>
 
-		<div class="form-group">
-			
-			{!! Form::label('age') !!}
-			{!! Form::input('number', 'age', $profile->age, ['min' => '13', 'max' => '99']) !!}
+			<div class="form-group">
+				
+				{!! Form::label('age') !!}
+				{!! Form::input('number', 'age', $profile->age, ['min' => '13', 'max' => '99']) !!}
+
+			</div>
 
 		</div>
 

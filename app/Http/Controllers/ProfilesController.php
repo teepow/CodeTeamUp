@@ -132,7 +132,7 @@ class ProfilesController extends Controller {
 	/**
 	 * Update user's profile
 	 * 
-	 * @param  Integer $profileId 
+	 * @param  Integer $profileId profile_id of profile to update
 	 * 
 	 * @param  PrepareProfileRequest $request
 	 * 
