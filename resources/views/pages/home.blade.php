@@ -25,7 +25,7 @@
 	<div class="col-md-6">
 		<div class="jumbotron">
 
-			<h1 class="page-heading edit-profile-heading">Hello, {{ $name }}</h1>
+			<h1 class="page-heading">Hello, {{ $name }}</h1>
 	
 		</div>
 		<div class="jumbotron">

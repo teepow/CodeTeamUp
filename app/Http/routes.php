@@ -16,6 +16,14 @@
  * Home Page
  */
 Route::get('/', 'PagesController@home');
+// get('/', function()
+// {
+// 	if (Auth::check()) return 'Welcome back, ' . Auth::user()->username;
+
+// 	return 'Hi guest. ' . link_to('login', 'Login With Github');
+// });
+
+// get('login', 'AuthController@login');
 
 /**
  * Profile
@@ -45,3 +53,8 @@ Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
+
+/**
+ * Github Login
+ */
+Route::get('login/github', 'AuthController@login');
