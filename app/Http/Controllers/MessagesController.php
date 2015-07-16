@@ -31,6 +31,8 @@ class MessagesController extends Controller {
 	 */
 	public function create($profileId)
 	{
+		if (!$this->checkForProfile()) return redirect('profiles/create');
+
 		$profile = Profile::find($profileId);
 
 		$name = $profile->user->name;
@@ -66,13 +68,25 @@ class MessagesController extends Controller {
 	 */
 	public function index()
 	{
+		if (!$this->checkForProfile()) return redirect('profiles/create');
+
 		$profileId = \Auth::user()->profiles->id;
 
 		$messages = \DB::table('messages')->where('receiver_id', $profileId)
 			->join('users', 'user_id', '=', 'users.id')
-			->join('profiles', 'messages.user_id', '=', 'profiles.user_id')->get();
+			->join('profiles', 'messages.user_id', '=', 'profiles.user_id')
+			->select('users.id AS userId', 'messages.id AS messageId', 'profiles.id AS profileId', 'users.name AS name', 'messages.message AS message', 'messages.read AS read')
+			->get();
 
 		return view('messages.index', compact('messages'));
+	}
+
+	public function update($messageId)
+	{
+		Message::where('id', '=', $messageId)
+			->update(['read' => true]);
+
+		return redirect('messages');
 	}
 
 }

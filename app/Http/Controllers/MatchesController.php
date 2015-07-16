@@ -27,6 +27,8 @@ class MatchesController extends Controller {
 	 */
 	public function index()
 	{
+		if (!$this->checkForProfile()) return redirect('profiles/create');
+		
 		$userId = Auth::user()->profiles->id;
 
 		$languages = Profile::find($userId)->languages;

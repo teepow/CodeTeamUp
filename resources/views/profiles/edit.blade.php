@@ -52,8 +52,8 @@
 
 				@foreach($allLanguages as $language)
 
-					{!! Form::checkbox("languages[]", "$language", in_array($language, $currentLanguages)) !!}
-					{!! Form::label("languages", "$language") !!}			
+					{!! Form::label("languages", "$language") !!}	
+					{!! Form::checkbox("languages[]", "$language", in_array($language, $currentLanguages)) !!}		
 
 				@endforeach
 

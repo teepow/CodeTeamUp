@@ -18,10 +18,20 @@ abstract class Controller extends BaseController {
 			{
 				$profileId = \Auth::user()->profiles->id;
 
-				$messageCount = \DB::table('messages')->where('receiver_id', $profileId)->count();
+				$messageCount = \DB::table('messages')->where('receiver_id', $profileId)->where('read', false)->count();
 
 				\View::share('messageCount', $messageCount);
 			}
+		}
+
+		/**
+		 * If user has not created a profile, redirect to profiles/create
+		 * 
+		 * @return boolean
+		 */
+		public function checkForProfile()
+		{
+			return (!Auth::user()->profiles) ? false : true;
 		}
 
 }

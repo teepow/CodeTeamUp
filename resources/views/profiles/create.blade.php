@@ -1,7 +1,6 @@
-@extends('no-nav-app')
+@extends('app')
 
 @section('content')
-
 
 	<h1 class="page-heading">Edit Profile</h1>
 
@@ -9,34 +8,34 @@
 
 		<div class="form-group">
 			
-			{!! Form::label('location') !!}
+			{!! Form::label('location', 'Location') !!}
 			{!! Form::text('location', null, ['class' => 'form-control']) !!}
 
 		</div>
 
 		<div class="form-group">
 			
-			{!! Form::label('website') !!} 
+			{!! Form::label('website', 'Website') !!} 
 			{!! Form::text('website', null, ['class' => 'form-control']) !!} *Optional
 
 		</div>
 
 		<div class="form-group">
 			
-			{!! Form::label('github') !!}
+			{!! Form::label('github', 'Github') !!}
 			{!! Form::text('github', null, ['class' => 'form-control']) !!} *Optional
 
 		</div>
 
 		<div class="form-group">
 			
-			{!! Form::label('age') !!}
+			{!! Form::label('age', 'Age') !!}
 			{!! Form::input('number', 'age', null, ['min' => '13', 'max' => '99', 'class' => 'form-control']) !!}
 
 		</div>
 
 		<div class="form-group">
-			{!! Form::label('A little about you:') !!} 255 character max 
+			{!! Form::label('bio', 'A little about you:') !!} 255 character max 
 			{!! Form::textarea('bio', null, ['class' => 'form-control', 'maxlength' => '255']) !!} *Optional 
 		</div>
 
@@ -52,8 +51,8 @@
 
 				@foreach($languages as $language)
 
-					{!! Form::checkbox("languages[]", "$language") !!}
-					{!! Form::label("languages[]", "$language") !!}		
+					{!! Form::label("$language", "$language") !!}	
+					{!! Form::checkbox("languages[]", "$language", null, ['id' => "$language"]) !!}	
 
 				@endforeach
 

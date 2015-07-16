@@ -57,9 +57,16 @@ input[type="submit"] {
 /**
  * Messages
  */
+.panel .panel-heading h3 {
+  float: left; }
+
 .panel-body a {
   float: right;
   margin-left: 10px; }
+
+.mark-as-read-button {
+  float: right;
+  margin-top: -25px; }
 
 /*# sourceMappingURL=app.css.map */
 /*# sourceMappingURL=all.css.map */

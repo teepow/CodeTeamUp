@@ -45,6 +45,7 @@ Route::get('matches', 'MatchesController@index');
 Route::get('messages/{id}/create', 'MessagesController@create');
 Route::post('messages/store', 'MessagesController@store');
 Route::get('messages', 'MessagesController@index');
+Route::patch('messages/{messages}', 'MessagesController@update');
 
 /**
  * Authentication

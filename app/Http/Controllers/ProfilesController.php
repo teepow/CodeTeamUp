@@ -30,6 +30,8 @@ class ProfilesController extends Controller {
 	 */
 	public function edit()
 	{
+		if (!$this->checkForProfile()) return redirect('profiles/create');
+
 		$allLanguages = Language::all()->lists('name');
 
 		$profile = Auth::user()->profiles;
@@ -49,6 +51,8 @@ class ProfilesController extends Controller {
 	 */
 	public function create()
 	{
+		if($this->checkForProfile()) return redirect('/');
+
 		$languages = Language::all()->lists('name');
 		
 		return view('profiles.create', compact('languages'));
