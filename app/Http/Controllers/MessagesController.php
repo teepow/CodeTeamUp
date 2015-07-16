@@ -75,7 +75,7 @@ class MessagesController extends Controller {
 		$messages = \DB::table('messages')->where('receiver_id', $profileId)
 			->join('users', 'user_id', '=', 'users.id')
 			->join('profiles', 'messages.user_id', '=', 'profiles.user_id')
-			->select('users.id AS userId', 'messages.id AS messageId', 'profiles.id AS profileId', 'users.name AS name', 'messages.message AS message', 'messages.read AS read')
+			->select('messages.id AS messageId', 'profiles.id AS profileId', 'users.name AS name', 'messages.message AS message', 'messages.read AS read')
 			->get();
 
 		return view('messages.index', compact('messages'));

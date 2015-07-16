@@ -61,6 +61,8 @@ input[type="submit"] {
 
 .mark-as-read-button {
   float: right;
-  margin-top: -25px; }
+  margin-top: -22px;
+  margin-right: -12px;
+  font-size: .75em; }
 
 /*# sourceMappingURL=app.css.map */

@@ -48,7 +48,7 @@
 						<div class="form-group">
 							<div class="col-md-6 col-md-offset-4">
 								<button type="submit" class="btn btn-primary">Login</button>
-								<a href="login/github" class="btn btn-primary">Login With Github</a>
+								<a href="{{ url('/login/github') }}" class="btn btn-primary">Login With Github</a>
 
 								<a class="btn btn-link" href="{{ url('/password/email') }}">Forgot Your Password?</a>
 							</div>

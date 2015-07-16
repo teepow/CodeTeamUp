@@ -38,6 +38,7 @@ Route::patch('profiles/{profiles}', 'ProfilesController@update');
  * Matches
  */
 Route::get('matches', 'MatchesController@index');
+Route::get('matches/{sort}', 'MatchesController@index');
 
 /**
  * Messages

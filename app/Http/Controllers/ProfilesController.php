@@ -73,13 +73,13 @@ class ProfilesController extends Controller {
 			$file = $this->resizeImage($request->file('file'));
 
 			$path = $this->getPath($file);
-
-			$profile->image = $path;
 		}
 
 		$data = $request->except('language', 'file');
 
 		$profile = Profile::open($data);
+
+		$profile->image = $path;
 
 		Auth::user()->profiles()->save($profile);
 

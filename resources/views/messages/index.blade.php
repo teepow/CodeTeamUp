@@ -19,8 +19,8 @@
 				</div>
 				<div class="panel-body">
 					{{ $message->message }}
-					<a class="btn btn-primary" href="profiles/{{ $message->userId }}">View Profile</a>
-					<a class="btn btn-success" href="messages/{{ $message->userId }}/create">Send Message</a>
+					<a class="btn btn-primary" href="profiles/{{ $message->profileId }}">View Profile</a>
+					<a class="btn btn-success" href="messages/{{ $message->profileId }}/create">Send Message</a>
 				</div>
 			</div>
 
