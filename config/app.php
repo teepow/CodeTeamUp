@@ -139,6 +139,7 @@ return [
 		'Illuminate\Html\HtmlServiceProvider',
 		'Intervention\Image\ImageServiceProvider',
 		'Laravel\Socialite\SocialiteServiceProvider',
+		'GrahamCampbell\GitHub\GitHubServiceProvider',
 
 		/*
 		 * Application Service Providers...
@@ -199,7 +200,8 @@ return [
 		'Form' 		=> 'Illuminate\Html\FormFacade',
 		'HTML'		=> 'Illuminate\Html\HtmlFacade',
 		'Image'		=> 'Intervention\Image\Facades\Image',
-		'Socialite' => 'Laravel\Socialite\Facades\Socialite'
+		'Socialite' => 'Laravel\Socialite\Facades\Socialite',
+		'Github' 	=> 'GrahamCampbell\GitHub\Facades\GitHub'
 
 	],
 

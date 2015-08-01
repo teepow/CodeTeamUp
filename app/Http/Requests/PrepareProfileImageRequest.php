@@ -2,7 +2,7 @@
 
 use App\Http\Requests\Request;
 
-class PrepareProfileRequest extends Request {
+class PrepareProfileImageRequest extends Request {
 
 	/**
 	 * Determine if the user is authorized to make this request.
@@ -22,11 +22,7 @@ class PrepareProfileRequest extends Request {
 	public function rules()
 	{
 		return [
-			'location' 	=> 'required|max:20',
-			'website'  	=> 'url',
-			'github'	=> 'url',
-			'age'		=> 'required',
-			'languages'	=> 'required|min:1'
+			'file' => 'image|mimes:jpg,jpeg,png'
 		];
 	}
 

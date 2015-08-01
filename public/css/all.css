@@ -6,9 +6,6 @@
 body {
   background-color: #ADD8E6; }
 
-.container {
-  margin-top: 100px; }
-
 /**
  * Home page
  */
@@ -39,9 +36,6 @@ input {
 
 textarea {
   background-color: #e8f4f8 !important; }
-
-input[type="submit"] {
-  background-color: #5fb3ce; }
 
 /**
  * Matches

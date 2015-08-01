@@ -5,7 +5,6 @@ body {
 }
 
 .container {
-	margin-top: 100px;
 }
 
 /**
@@ -37,17 +36,12 @@ ul {
 .labels-group label {
 	width: 75px;
 }
-
 input {
 	background-color: $lighter;
 }
 
 textarea {
 	background-color: $lighter !important;
-}
-
-input[type="submit"] {
-	background-color: $darker;
 }
 
 /**

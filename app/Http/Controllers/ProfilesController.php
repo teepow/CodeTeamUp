@@ -4,6 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Language;
 use App\Http\Requests\PrepareProfileRequest;
+use App\Http\Requests\PrepareProfileImageRequest;
 use App\Profile;
 use Auth;
 use Image;
@@ -152,16 +153,6 @@ class ProfilesController extends Controller {
 						'location' => $request->location,
 		]);
 
-		//if exists, save file
-		if($request->file('file'))
-		{
-			$file = $this->resizeImage($request->file('file'));
-
-			$path = $this->getPath($file);
-
-			Profile::where('id', '=', $profileId)
-				->update(['image' => $path]);
-		}
 
 		//Save the languages to pivot table
 		$languageIds = $this->getLanguageIds($request->languages);
@@ -174,6 +165,17 @@ class ProfilesController extends Controller {
 
 	}
 
+	public function updateImage($profileId, PrepareProfileImageRequest $request)
+	{
+			$file = $this->resizeImage($request->file('file'));
+
+			$path = $this->getPath($file);
+
+			Profile::where('id', '=', $profileId)
+				->update(['image' => $path]);
+
+			return Redirect('profiles/edit');
+	}
 
 
 	/**

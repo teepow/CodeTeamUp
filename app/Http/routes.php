@@ -33,6 +33,7 @@ Route::get('profiles/create', 'ProfilesController@create');
 Route::get('profiles/{profiles}', 'ProfilesController@show');
 Route::post('profiles/store', 'ProfilesController@store');
 Route::patch('profiles/{profiles}', 'ProfilesController@update');
+Route::patch('profiles/{profiles}/image', 'ProfilesController@updateImage');
 
 /**
  * Matches
@@ -60,3 +61,8 @@ Route::controllers([
  * Github Login
  */
 Route::get('login/github', 'AuthController@login');
+
+/**
+ * Github repos
+ */
+Route::get('github', 'GithubController@update');
