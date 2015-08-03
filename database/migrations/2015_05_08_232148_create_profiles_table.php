@@ -19,7 +19,7 @@ class CreateProfilesTable extends Migration {
 			$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 			$table->string('website')->nullable();
 			$table->string('github')->nullable();
-			$table->string('bio');
+			$table->text('bio');
 			$table->integer('age');
 			$table->string('location');
 			$table->string('occupation');

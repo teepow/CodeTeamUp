@@ -35,7 +35,7 @@
 							@foreach($profiles as $profile)
 								<tr>
 
-									<td>{!! HTML::image("$profile->image", null, ['class' => 'img-responsive', 'width' => '20', 'height' => "20"]) !!}</td>	
+									<td>{!! HTML::image("$profile->image", null, ['class' => 'img-circle media oject', 'width' => '20', 'height' => "20"]) !!}</td>	
 									<td>{{ $profile->user->name }}</td>
 									<td><a href="{{ $profile->website }}" target="_blank">{{ $profile->website }}</a></td>
 									<td><a href="{{ $profile->github }}" target="_blank">{{ $profile->github }}</a></td>

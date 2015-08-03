@@ -34,29 +34,25 @@ Licensed under MIT
         <div class="profile-usermenu profile-usermenu-home">
           <ul class="nav">
             <li>
-              Location: 
               {{ $location }}
             </li>
             <li>
-              Age: 
               {{ $age }}
             </li>
             <li>
-              Website:
               @if($website)
-                <a href="{{ $website }}" target="_blank">{{ $website }}</a>
+                <a href="{{ $website }}" target="_blank" class="sidebar-links"><i class="fa fa-star"></i>Website</a>
               @else User has no website
               @endif
             </li>
             <li>
-              Github: 
               @if($github)
-                <a href="{{ $github }}" target="_blank">{{ $github }}</a>
+                <a href="{{ $github }}" target="_blank" class="sidebar-links"><i class="fa fa-github"></i>GitHub</a>
               @else User has no GitHub
               @endif
             </li>
             <ul class="list-inline">
-      		  <li>Languages: </li>
+
               @foreach($languageNames as $languageName)
                 <li>{{ $languageName }}</li>
               @endforeach

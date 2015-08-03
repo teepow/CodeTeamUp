@@ -42,8 +42,8 @@
 		</div>
 
 		<div class="form-group">
-			{!! Form::label('bio', 'A little about you:') !!} 255 character max 
-			{!! Form::textarea('bio', null, ['class' => 'form-control', 'maxlength' => '255']) !!}
+			{!! Form::label('bio', 'A little about you') !!}
+			{!! Form::textarea('bio', null, ['class' => 'form-control', 'maxlength' => '1000']) !!}
 		</div>
 
 		<div class="form-group">

@@ -7,6 +7,7 @@
 	<title>Laravel</title>
 
 	<link href="{{ asset('/css/all.css') }}" rel="stylesheet">
+	<link href="{{ asset('font-awesome-4.4.0/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
 
 	<!-- Fonts -->
 	<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>

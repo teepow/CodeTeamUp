@@ -22,13 +22,13 @@ class PrepareProfileRequest extends Request {
 	public function rules()
 	{
 		return [
-			'occupation'	=> 'required',
-			'location' 		=> 'required|max:20',
+			'occupation'	=> 'required|max:30',
+			'location' 		=> 'required|max:30',
 			'website'  		=> 'url',
 			'github'		=> 'url',
 			'age'			=> 'required',
 			'languages'		=> 'required|min:1',
-			'bio' 			=> 'required'
+			'bio' 			=> 'required|max:1000'
 		];
 	}
 

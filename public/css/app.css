@@ -19,7 +19,8 @@ Licensed under MIT
 /* Profile sidebar */
 .profile-sidebar {
   padding: 20px 0 10px 0;
-  background: #fff; }
+  background: #fff;
+  min-height: 585px; }
 
 .profile-userpic img {
   float: none;
@@ -94,9 +95,9 @@ Licensed under MIT
 .profile-content {
   padding: 20px;
   background: #fff;
-  min-height: 515px; }
+  min-height: 585px; }
   .profile-content p {
-    font-size: 2.5em; }
+    font-size: 1.5em; }
   .profile-content h1 {
     font-size: 4em;
     color: #5fb3ce;
@@ -131,6 +132,17 @@ Licensed under MIT
 .profile-usermenu-home {
   margin-top: 75px; }
 
+.sidebar-links {
+  margin-left: -15px;
+  color: #235e71 !important; }
+  .sidebar-links:hover:after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 1px;
+    background: #235e71;
+    margin: 0px 18px 0px 18px; }
+
 /**	
  * Profile
  */
@@ -163,16 +175,22 @@ textarea {
 /**
  * Messages
  */
-.panel .panel-heading h3 {
-  float: left; }
+.media-list {
+  float: left;
+  clear: left;
+  width: 100%; }
 
-.panel-body a {
-  float: right;
-  margin-left: 10px; }
+.media-body ul {
+  margin-bottom: -20px; }
+  .media-body ul li {
+    border: none; }
+
+.messages-container {
+  margin-left: auto; }
 
 .mark-as-read-button {
   float: right;
-  margin-top: -22px;
+  margin-top: -18px;
   font-size: .75em; }
 
 .text-center {
