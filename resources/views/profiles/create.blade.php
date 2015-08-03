@@ -8,6 +8,13 @@
 
 		<div class="form-group">
 			
+			{!! Form::label('occupation', 'Occupation') !!}
+			{!! Form::text('occupation', null, ['class' => 'form-control']) !!}
+
+		</div>
+
+		<div class="form-group">
+			
 			{!! Form::label('location', 'Location') !!}
 			{!! Form::text('location', null, ['class' => 'form-control']) !!}
 
@@ -36,12 +43,12 @@
 
 		<div class="form-group">
 			{!! Form::label('bio', 'A little about you:') !!} 255 character max 
-			{!! Form::textarea('bio', null, ['class' => 'form-control', 'maxlength' => '255']) !!} *Optional 
+			{!! Form::textarea('bio', null, ['class' => 'form-control', 'maxlength' => '255']) !!}
 		</div>
 
 		<div class="form-group">
 			{!! Form::label('file', 'Add a Photo') !!}
-			{!! Form::file('file') !!} *Optional
+			{!! Form::file('file') !!}
 		</div>
 
 		<div class="form-group">

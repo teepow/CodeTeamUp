@@ -2,7 +2,7 @@
 
 use App\Http\Requests\Request;
 
-class PrepareProfileRequest extends Request {
+class PrepareProfileCreateRequest extends Request {
 
 	/**
 	 * Determine if the user is authorized to make this request.
@@ -28,7 +28,8 @@ class PrepareProfileRequest extends Request {
 			'github'		=> 'url',
 			'age'			=> 'required',
 			'languages'		=> 'required|min:1',
-			'bio' 			=> 'required'
+			'bio' 			=> 'required',
+			'file' 			=> 'required|image|mimes:jpg,jpeg,png'
 		];
 	}
 

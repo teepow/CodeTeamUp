@@ -72,7 +72,7 @@ class MessagesController extends Controller {
 
 		$profileId = \Auth::user()->profiles->id;
 
-		$messages = \DB::table('messages')->where('receiver_id', $profileId)
+		$messages = \DB::table('messages')->where('receiver_id', $profileId)->where('read', false)
 			->join('users', 'user_id', '=', 'users.id')
 			->join('profiles', 'messages.user_id', '=', 'profiles.user_id')
 			->select('messages.id AS messageId', 'profiles.id AS profileId', 'users.name AS name', 'messages.message AS message', 'messages.read AS read')

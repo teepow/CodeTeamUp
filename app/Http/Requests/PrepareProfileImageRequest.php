@@ -22,7 +22,7 @@ class PrepareProfileImageRequest extends Request {
 	public function rules()
 	{
 		return [
-			'file' => 'image|mimes:jpg,jpeg,png'
+			'file' => 'required|image|mimes:jpg,jpeg,png'
 		];
 	}
 

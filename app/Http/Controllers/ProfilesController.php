@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Language;
 use App\Http\Requests\PrepareProfileRequest;
 use App\Http\Requests\PrepareProfileImageRequest;
+use App\Http\Requests\PrepareProfileCreateRequest;
 use App\Profile;
 use Auth;
 use Image;
@@ -66,7 +67,7 @@ class ProfilesController extends Controller {
 	 * 
 	 * @return /
 	 */
-	public function store(PrepareProfileRequest $request)
+	public function store(PrepareProfileCreateRequest $request)
 	{
 		//If exists, store image
 		if($request->file('file')) 
@@ -122,6 +123,8 @@ class ProfilesController extends Controller {
 
 		$image = $profile->image;
 
+		$occupation = $profile->occupation;
+
 		$languages = $profile->languages;
 
 		//Store names of languages in languageNames[]
@@ -131,7 +134,7 @@ class ProfilesController extends Controller {
 		}
 
 
-		return view('profiles.show', compact('name', 'location', 'github', 'website', 'age', 'bio', 'image', 'languageNames', 'profileId'));
+		return view('profiles.show', compact('name', 'location', 'github', 'website', 'age', 'bio', 'image', 'occupation', 'languageNames', 'profileId'));
 	}
 
 	/**
@@ -151,6 +154,7 @@ class ProfilesController extends Controller {
 						'bio' => $request->bio,
 						'age' => $request->age,
 						'location' => $request->location,
+						'occupation' => $request->occupation
 		]);
 
 

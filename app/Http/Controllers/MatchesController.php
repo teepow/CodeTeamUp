@@ -47,7 +47,14 @@ class MatchesController extends Controller {
 			}
 
 			//Store profiles in results[] with language names for panel headings
-			$results[$language->name] = $profiles;
+			try
+			{
+				$results[$language->name] = $profiles;
+			}
+			catch(\ErrorException $e)
+			{
+				return view('matches.index');
+			}
 
 			$profiles = [];
 		}

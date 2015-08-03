@@ -2,35 +2,77 @@
 
 @section('content')
 
-	<div class="col-md-3">
-		{!! HTML::image("$image", null, ['class' => 'img-responsive']) !!}
-		<ul class="home-list">
-			<li>{{ $age }}</li>
-			<li>{{ $location }}</li>
-			<li><a href="{{ $website }}" target="_blank">{{ $website }}</a></li>
-			<li><a href="{{ $github }}" target="_blank">{{ $github }}</a></li>
-			<li>		
-				<h2>Languages</h2>
-				<ul class="list-inline">
-			
-					@foreach($languageNames as $languageName)
-						<li>{{ $languageName }}</li>
-					@endforeach
+  <!--
+User Profile Sidebar by @keenthemes
+A component of Metronic Theme - #1 Selling Bootstrap 3 Admin Theme in Themeforest: http://j.mp/metronictheme
+Licensed under MIT
+-->
 
-				</ul>
-			</li>
-		</ul>
-	</div>
+  <div class="row profile">
+    <div class="col-md-3">
+      <div class="profile-sidebar">
+        <!-- SIDEBAR USERPIC -->
+        <div class="profile-userpic">
+          {!! HTML::image("$image", null, ['class' => 'img-responsive img-circle', 'alt' => 'user-pic']) !!}
+        </div>
+        <!-- END SIDEBAR USERPIC -->
+        <!-- SIDEBAR USER TITLE -->
+        <div class="profile-usertitle">
+          <div class="profile-usertitle-name">
+            {{ $name }}
+          </div>
+          <div class="profile-usertitle-job">
+            {{ $occupation }}
+          </div>
+        </div>
+        <!-- END SIDEBAR USER TITLE -->
+        <!-- SIDEBAR BUTTONS -->
+        <div class="profile-userbuttons">
+        </div>
+        <!-- END SIDEBAR BUTTONS -->
+        <!-- SIDEBAR MENU -->
+        <div class="profile-usermenu profile-usermenu-home">
+          <ul class="nav">
+            <li>
+              Location: 
+              {{ $location }}
+            </li>
+            <li>
+              Age: 
+              {{ $age }}
+            </li>
+            <li>
+              Website:
+              @if($website)
+                <a href="{{ $website }}" target="_blank">{{ $website }}</a>
+              @else User has no website
+              @endif
+            </li>
+            <li>
+              Github: 
+              @if($github)
+                <a href="{{ $github }}" target="_blank">{{ $github }}</a>
+              @else User has no GitHub
+              @endif
+            </li>
+            <ul class="list-inline">
+      		  <li>Languages: </li>
+              @foreach($languageNames as $languageName)
+                <li>{{ $languageName }}</li>
+              @endforeach
 
-	<div class="col-md-6">
-		<div class="jumbotron">
-
-			<h1 class="page-heading">Hello, {{ $name }}</h1>
-	
-		</div>
-		<div class="jumbotron">
-			<p class="well well-lg">{{ $bio }}</p>
-		</div>
-	</div>
+	        </ul>
+          </ul>
+        </div>
+        <!-- END MENU -->
+      </div>
+    </div>
+    <div class="col-md-9">
+            <div class="profile-content">
+            	<h1>About {{ $name }}</h1><hr><br>
+         		<p>{{ $bio }}</p>
+            </div>
+    </div>
+  </div>
 
 @stop

@@ -46,6 +46,8 @@ class PagesController extends Controller {
 
 			$id = $profile->id;
 
+			$occupation = $profile->occupation;
+
 			$languages = Profile::find($id)->languages;
 
 			//Store names of languages in languageNames[]
@@ -54,7 +56,7 @@ class PagesController extends Controller {
 				$languageNames[] = $language->name;
 			}
 
-			return view('pages.home', compact('name', 'location', 'website', 'github', 'age', 'bio', 'image', 'languageNames'));
+			return view('pages.home', compact('name', 'location', 'website', 'github', 'age', 'bio', 'image', 'occupation', 'languageNames'));
 		}
 		return view('auth.login');
 	}
