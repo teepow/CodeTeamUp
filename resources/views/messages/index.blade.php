@@ -46,7 +46,7 @@
 		</div>
 	@else
 		<div class="text-center">
-			<h1>Nobody Loves You</h1>
+			<h1>No Messages</h1>
 		</div>
 	@endif
 

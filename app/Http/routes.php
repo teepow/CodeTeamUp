@@ -61,8 +61,3 @@ Route::controllers([
  * Github Login
  */
 Route::get('login/github', 'AuthController@login');
-
-/**
- * Github repos
- */
-Route::get('github', 'GithubController@update');

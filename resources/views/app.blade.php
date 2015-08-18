@@ -4,10 +4,11 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Laravel</title>
+	<title>CodeTeamUp</title>
 
 	<link href="{{ asset('/css/all.css') }}" rel="stylesheet">
 	<link href="{{ asset('font-awesome-4.4.0/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+	<link rel="icon" href="{{{ asset('cubes.png') }}}" type="image/png" sizes="16x16">
 
 	<!-- Fonts -->
 	<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
