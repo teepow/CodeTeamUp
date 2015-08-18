@@ -201,7 +201,8 @@ textarea {
 .text-center {
   margin-top: 100px; }
   .text-center h1 {
-    font-size: 8em; }
+    font-size: 1.5em;
+    text-decoration: underline; }
 
 /*# sourceMappingURL=app.css.map */
 /*# sourceMappingURL=all.css.map */
