@@ -54,7 +54,11 @@ return [
 	|
 	*/
 
+<<<<<<< HEAD
 	'from' => ['address' => 'admin@tompowers.xyz', 'name' => 'Tom'],
+=======
+	'from' => ['address' => 'admin@tompowers/xyz', 'name' => 'Tom'],
+>>>>>>> cf742e9d37a2ba8bc4c671f219f77cb787ff205b
 
 	/*
 	|--------------------------------------------------------------------------
