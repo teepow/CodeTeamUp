@@ -16,14 +16,6 @@
  * Home Page
  */
 Route::get('/', 'PagesController@home');
-// get('/', function()
-// {
-// 	if (Auth::check()) return 'Welcome back, ' . Auth::user()->username;
-
-// 	return 'Hi guest. ' . link_to('login', 'Login With Github');
-// });
-
-// get('login', 'AuthController@login');
 
 /**
  * Profile
@@ -45,8 +37,8 @@ Route::get('matches/{sort}', 'MatchesController@index');
  * Messages
  */
 Route::get('messages/{id}/create', 'MessagesController@create');
-Route::post('messages/store', 'MessagesController@store');
 Route::get('messages', 'MessagesController@index');
+Route::post('messages/store', 'MessagesController@store');
 Route::patch('messages/{messages}', 'MessagesController@update');
 
 /**
